@@ -1,6 +1,6 @@
 package edu.fpdual.webservice.mysql.manager.imp;
 
-import org.login.app.model.mysql.manager.RegisterManager;
+import edu.fpdual.webservice.mysql.manager.RegisterManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

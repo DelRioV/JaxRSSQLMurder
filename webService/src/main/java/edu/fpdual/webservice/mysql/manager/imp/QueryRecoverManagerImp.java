@@ -1,6 +1,6 @@
 package edu.fpdual.webservice.mysql.manager.imp;
 
-import org.login.app.model.mysql.manager.QueryRecoverManager;
+import edu.fpdual.webservice.mysql.manager.QueryRecoverManager;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
