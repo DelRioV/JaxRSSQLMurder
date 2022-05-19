@@ -1,12 +1,14 @@
-package edu.fpdual.webservice.dto;
+package edu.fpdual.webservice.api.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Notification {
+
     private int id;
     private String title;
     private String body;
+
 }
