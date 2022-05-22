@@ -18,10 +18,8 @@ public class UserService {
     public boolean createUser(User user) {
         boolean kk = false;
         try (Connection con = new MySQLConnector().getMySQLConnection()) {
-            if (registerManager.compareRegisterQuery(con, user.getUsername())) {
                 registerManager.executeRegisterQuery(con, user.getEmail(), user.getUsername(), user.getPassword());
                 kk = true;
-            }
         } catch (Exception e) {
             e.printStackTrace();
 

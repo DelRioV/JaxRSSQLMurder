@@ -26,7 +26,7 @@ public class RegisterController {
         if (userService.createUser(user)) {
             return Response.status(201).entity(user).build();
         } else {
-            return Response.status(500).entity("Internal Error During DB Interaction").build();
+            return Response.status(500).entity("Username already exists").build();
         }
     }
 }
