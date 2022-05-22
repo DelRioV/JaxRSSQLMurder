@@ -1,4 +1,4 @@
-package edu.fpdual.webservice.mysql.dao;
+package edu.fpdual.webservice.api.dto;
 
 import lombok.Getter;
 import lombok.Setter;

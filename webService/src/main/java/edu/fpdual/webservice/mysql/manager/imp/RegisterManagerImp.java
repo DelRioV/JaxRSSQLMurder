@@ -12,18 +12,18 @@ public class RegisterManagerImp implements RegisterManager {
     @Override
     public boolean compareRegisterQuery(Connection con, String username) {
         try {
-            boolean condicion = false;
+            boolean condicion = true;
             PreparedStatement preparedStatement = con.prepareStatement("SELECT username from user " +
                     "where username = ? ");
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                condicion = true;
+                condicion = false;
             }
             return condicion;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return true;
         }
     }
 

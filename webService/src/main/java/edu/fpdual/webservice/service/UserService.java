@@ -1,10 +1,8 @@
 package edu.fpdual.webservice.service;
 
 import edu.fpdual.webservice.mysql.connector.MySQLConnector;
-import edu.fpdual.webservice.mysql.dao.User;
-import edu.fpdual.webservice.mysql.manager.LoginSuccesfulManager;
+import edu.fpdual.webservice.api.dto.User;
 import edu.fpdual.webservice.mysql.manager.RegisterManager;
-import edu.fpdual.webservice.mysql.manager.imp.LoginSuccesfulManagerImp;
 import edu.fpdual.webservice.mysql.manager.imp.RegisterManagerImp;
 
 import java.sql.Connection;
