@@ -23,7 +23,7 @@ public class RegisterController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createUser(User user) {
         if (userService.createUser(user)) {
-            return Response.accepted().build();
+            return Response.status(201).entity(user).build();
         } else {
             return Response.status(500).entity("Internal Error During DB Interaction").build();
         }
