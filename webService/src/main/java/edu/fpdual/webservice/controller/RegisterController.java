@@ -22,11 +22,11 @@ public class RegisterController {
     @Path("/post")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createUser(User user) {
+    public Boolean createUser(User user) {
         if (registerService.createUser(user)) {
-            return Response.status(201).entity(user).build();
+            return new Boolean(true);
         } else {
-            return Response.status(500).entity("Username already exists").build();
+            return new Boolean(false);
         }
     }
 }
