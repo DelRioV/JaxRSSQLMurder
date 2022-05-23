@@ -7,20 +7,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class LoginSuccesfulManagerImp implements LoginSuccesfulManager {
+
+    public LoginSuccesfulManagerImp() {
+    }
+
     @Override
     public boolean executeLoginQuery(Connection con, String username, String password) {
-        try{
-            boolean condicion=false;
+        try {
+            boolean condicion = false;
             PreparedStatement preparedStatement = con.prepareStatement("SELECT username,pwd_user from user " +
                     "where username = ? and pwd_user = ?");
-            preparedStatement.setString(1,username);
-            preparedStatement.setString(2,password);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                condicion=true;
+                condicion = true;
             }
             return condicion;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }

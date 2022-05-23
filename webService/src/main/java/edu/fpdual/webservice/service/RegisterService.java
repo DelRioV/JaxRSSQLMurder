@@ -7,11 +7,11 @@ import edu.fpdual.webservice.mysql.manager.imp.RegisterManagerImp;
 
 import java.sql.Connection;
 
-public class UserService {
+public class RegisterService {
 
     private final RegisterManager registerManager;
 
-    public UserService(RegisterManagerImp registerManagerImp) {
+    public RegisterService(RegisterManagerImp registerManagerImp) {
         registerManager = registerManagerImp;
     }
 

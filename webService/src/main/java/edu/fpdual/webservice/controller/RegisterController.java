@@ -2,7 +2,7 @@ package edu.fpdual.webservice.controller;
 
 import edu.fpdual.webservice.api.dto.User;
 import edu.fpdual.webservice.mysql.manager.imp.RegisterManagerImp;
-import edu.fpdual.webservice.service.UserService;
+import edu.fpdual.webservice.service.RegisterService;
 import jakarta.ws.rs.*;
 
 import jakarta.ws.rs.core.MediaType;
@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.Response;
 
 @Path("/register")
 public class RegisterController {
-    UserService userService = new UserService(new RegisterManagerImp());
+    RegisterService registerService = new RegisterService(new RegisterManagerImp());
 
     @GET
     @Path("/ping")
@@ -23,7 +23,7 @@ public class RegisterController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createUser(User user) {
-        if (userService.createUser(user)) {
+        if (registerService.createUser(user)) {
             return Response.status(201).entity(user).build();
         } else {
             return Response.status(500).entity("Username already exists").build();
