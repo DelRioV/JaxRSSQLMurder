@@ -2,7 +2,7 @@ package edu.fpdual.webservice.controller;
 
 import edu.fpdual.webservice.api.dto.User;
 import edu.fpdual.webservice.mysql.manager.imp.RegisterManagerImp;
-import edu.fpdual.webservice.service.RegisterService;
+import edu.fpdual.webservice.controller.service.RegisterService;
 import jakarta.ws.rs.*;
 
 import jakarta.ws.rs.core.MediaType;

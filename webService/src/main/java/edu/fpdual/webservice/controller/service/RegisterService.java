@@ -1,4 +1,4 @@
-package edu.fpdual.webservice.service;
+package edu.fpdual.webservice.controller.service;
 
 import edu.fpdual.webservice.mysql.connector.MySQLConnector;
 import edu.fpdual.webservice.api.dto.User;

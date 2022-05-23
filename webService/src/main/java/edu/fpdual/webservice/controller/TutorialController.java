@@ -1,12 +1,9 @@
 package edu.fpdual.webservice.controller;
 
-import edu.fpdual.webservice.mysql.manager.imp.LoginSuccesfulManagerImp;
 import edu.fpdual.webservice.mysql.manager.imp.ModelInfoManagerImp;
-import edu.fpdual.webservice.service.LoginService;
-import edu.fpdual.webservice.service.TutorialService;
+import edu.fpdual.webservice.controller.service.TutorialService;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 

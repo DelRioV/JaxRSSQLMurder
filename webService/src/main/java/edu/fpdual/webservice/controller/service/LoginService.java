@@ -1,6 +1,5 @@
-package edu.fpdual.webservice.service;
+package edu.fpdual.webservice.controller.service;
 
-import edu.fpdual.webservice.api.dto.User;
 import edu.fpdual.webservice.mysql.connector.MySQLConnector;
 import edu.fpdual.webservice.mysql.manager.LoginSuccesfulManager;
 import edu.fpdual.webservice.mysql.manager.imp.LoginSuccesfulManagerImp;
@@ -14,7 +13,7 @@ public class LoginService {
         this.loginSuccesfulManager = loginSuccesfulManagerImp;
     }
 
-    public boolean logOn(String username, String password){
+    public boolean logIn(String username, String password){
         boolean kk = false;
         try(Connection connection = new MySQLConnector().getMySQLConnection()){
             if(loginSuccesfulManager.executeLoginQuery(connection,username,password)) {

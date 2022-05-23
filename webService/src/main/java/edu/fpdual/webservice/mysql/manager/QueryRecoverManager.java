@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public interface QueryRecoverManager {
 
-    public  ArrayList<ArrayList<String>> executeQuery(Connection connection, String query) ;
+    public ArrayList<ArrayList<String>> executeQuery(Connection connection, String query, int user_code);
+
+
 
     }
