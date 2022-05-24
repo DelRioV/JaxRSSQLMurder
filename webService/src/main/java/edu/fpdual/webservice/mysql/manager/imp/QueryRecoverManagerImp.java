@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class QueryRecoverManagerImp implements QueryRecoverManager {
 
-    private static final String[] WORDS = {"insert", "update", "drop", ";", "user", "user_code", "solution", "delete"};
+    private static final String[] WORDS = {"insert", "update", "drop", ";", "user", "user_code", "solution", "delete","admin"};
 
     @Override
     public ArrayList<ArrayList<String>> executeQuery(Connection connection, String query, int user_code) {
@@ -18,7 +18,8 @@ public class QueryRecoverManagerImp implements QueryRecoverManager {
         String lowerQuery = query.toLowerCase();
         if (!confirmQuery(lowerQuery)) {
             try {
-                query = convertQuery(query, user_code);
+                if(!query.contains("Table_name")){
+                query = convertQuery(query, user_code);}
                 System.out.println(query);
                 Statement statement = connection.createStatement();
                 ResultSet rs = statement.executeQuery(query + ";");

@@ -15,7 +15,6 @@ public class ModelInfoManagerImp implements ModelInfoManager {
     public ArrayList<String> changeTip(Connection con) throws SQLException {
         try {
             PreparedStatement psmt = con.prepareStatement("Select tutorialInfo from model");
-
             ResultSet resultSet = psmt.executeQuery();
             ArrayList<String> infoRecover = new ArrayList<>();
             while(resultSet.next()) {
