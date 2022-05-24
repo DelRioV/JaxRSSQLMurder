@@ -5,6 +5,7 @@ import edu.fpdual.webservice.mysql.manager.InsertHistoryManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class InsertHistoryManagerImp implements InsertHistoryManager {
 
@@ -14,11 +15,10 @@ public class InsertHistoryManagerImp implements InsertHistoryManager {
             "Personality from Characters_admin";
 
     private static final String ROOMSQUERY="insert into Rooms" +
-            "select distinct ?,RoomId,RoomName,RoomLocation,Description" +
+            "select distinct 1,RoomId,RoomName,RoomLocation,Description" +
             "from Rooms_admin";
 
-    private static final String HOURSSQUERY="Insert into Hours select distict character_id,?,Hours,Register from" +
-            "Hours_admin";
+    private static final String HOURSSQUERY="Insert into Hours select distinct character_id,?,Hours,Register from Hours_admin";
 
     @Override
     public boolean insertValues(Connection con, int user_code) throws SQLException {
@@ -35,9 +35,9 @@ public class InsertHistoryManagerImp implements InsertHistoryManager {
     }
 
     public void roomsQueryInsert(Connection con, int user_code) throws SQLException {
-        PreparedStatement preparedStatement = con.prepareStatement(ROOMSQUERY);
-        preparedStatement.setInt(1,user_code);
-        preparedStatement.executeUpdate();
+        Statement statement = con.createStatement();
+        String query="insert into Rooms select distinct " +user_code +",RoomId,RoomName,RoomLocation,Description from Rooms_admin;";
+        statement.executeUpdate(query);
     }
 
 
