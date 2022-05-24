@@ -23,11 +23,18 @@ public class InsertHistoryManagerImp implements InsertHistoryManager {
             "Main_History_Admin";
 
     @Override
-    public void insertValues(Connection con, int user_code) throws SQLException {
-        roomsQueryInsert(con,user_code);
-        charactersQueryInsert(con,user_code);
-        mainHistoryQueryInsert(con,user_code);
-        historyQueryInsert(con,user_code);
+    public boolean insertValues(Connection con, int user_code) throws SQLException {
+        boolean kk = false;
+        try {
+            roomsQueryInsert(con, user_code);
+            charactersQueryInsert(con, user_code);
+            mainHistoryQueryInsert(con, user_code);
+            historyQueryInsert(con, user_code);
+            kk = true;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return kk;
     }
 
     public void roomsQueryInsert(Connection con, int user_code) throws SQLException {

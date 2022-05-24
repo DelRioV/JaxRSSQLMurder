@@ -29,13 +29,16 @@ public class RegisterManagerImp implements RegisterManager {
 
     @Override
     public void executeRegisterQuery(Connection con, String email, String username, String password) throws SQLException {
-        PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO user VALUES (?,?,?,?)");
-        preparedStatement.setInt(1, LocalDateTime.now().getNano());
-        preparedStatement.setString(2, username);
-        preparedStatement.setString(3, email);
-        preparedStatement.setString(4, password);
-        System.out.println("soy sql");
-        preparedStatement.executeUpdate();
+        int user_code = LocalDateTime.now().getNano();
+        if (new InsertHistoryManagerImp().insertValues(con, user_code)) {
+            PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO user VALUES (?,?,?,?)");
+            preparedStatement.setInt(1, user_code);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, email);
+            preparedStatement.setString(4, password);
+            System.out.println("soy sql");
+            preparedStatement.executeUpdate();
+        }
     }
 
 

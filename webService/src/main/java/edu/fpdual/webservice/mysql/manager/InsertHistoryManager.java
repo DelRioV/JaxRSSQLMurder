@@ -5,6 +5,6 @@ import java.sql.SQLException;
 
 public interface InsertHistoryManager {
 
-    public void insertValues(Connection con, int user_code) throws SQLException;
+    public boolean insertValues(Connection con, int user_code) throws SQLException;
 
 }
