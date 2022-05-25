@@ -6,6 +6,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Class that use UserCodeManager interface
+ */
 public class UserCodeManagerImp implements UserCodeManager {
     @Override
     public int getUsercode(Connection con, String username) {
@@ -14,10 +19,10 @@ public class UserCodeManagerImp implements UserCodeManager {
             PreparedStatement preparedStatement = con.prepareStatement("SELECT cod_user from user where username=?");
             preparedStatement.setString(1, username);
             ResultSet rs = preparedStatement.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 id = rs.getInt(1);
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
         } finally {

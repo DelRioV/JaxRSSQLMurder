@@ -1,5 +1,9 @@
 package edu.fpdual.webservice.mysql.connector;
-
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Constants Class for DataBase
+ */
 public class MySQLConstants {
     public static final String PASSWD = "jdbc.org.login.app.model.mysql.passwd";
     public static final String USER = "jdbc.org.login.app.model.mysql.user";

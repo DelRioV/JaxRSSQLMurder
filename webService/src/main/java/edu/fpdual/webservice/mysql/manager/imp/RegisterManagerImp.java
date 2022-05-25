@@ -8,6 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Class that use RegisterManager interface
+ */
 public class RegisterManagerImp implements RegisterManager {
     @Override
     public boolean compareRegisterQuery(Connection con, String username) {
@@ -30,13 +35,13 @@ public class RegisterManagerImp implements RegisterManager {
     @Override
     public void executeRegisterQuery(Connection con, String email, String username, String password) throws SQLException {
         int user_code = LocalDateTime.now().getNano();
-            PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO user VALUES (?,?,?,?)");
-            preparedStatement.setInt(1, user_code);
-            preparedStatement.setString(2, username);
-            preparedStatement.setString(3, email);
-            preparedStatement.setString(4, password);
-            preparedStatement.executeUpdate();
-            new InsertHistoryManagerImp().insertValues(con,user_code);
+        PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO user VALUES (?,?,?,?)");
+        preparedStatement.setInt(1, user_code);
+        preparedStatement.setString(2, username);
+        preparedStatement.setString(3, email);
+        preparedStatement.setString(4, password);
+        preparedStatement.executeUpdate();
+        new InsertHistoryManagerImp().insertValues(con, user_code);
     }
 
 

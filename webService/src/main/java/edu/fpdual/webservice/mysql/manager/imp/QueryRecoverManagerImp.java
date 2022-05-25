@@ -8,6 +8,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Class that use QueryRecoverManager interface
+ */
 public class QueryRecoverManagerImp implements QueryRecoverManager {
 
     private static final String[] WORDS = {"insert", "update", "drop", ";", "user", "user_code", "solution", "delete", "admin"};
@@ -21,7 +26,6 @@ public class QueryRecoverManagerImp implements QueryRecoverManager {
                 if (!query.contains("Table_name")) {
                     query = convertQuery(query, user_code);
                 }
-                System.out.println(query);
                 Statement statement = connection.createStatement();
                 ResultSet rs = statement.executeQuery(query + ";");
                 while (rs.next()) {

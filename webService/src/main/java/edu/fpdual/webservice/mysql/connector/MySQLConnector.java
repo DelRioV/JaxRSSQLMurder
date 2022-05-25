@@ -9,7 +9,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
-
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Connector Class with DataBase
+ */
 public class MySQLConnector {
     @Getter
     @Setter
@@ -18,7 +22,6 @@ public class MySQLConnector {
 
     public MySQLConnector(){
         try{
-            System.out.println(getClass().getClassLoader().getResourceAsStream(("config.properties")));
             prop.load(getClass().getClassLoader().getResourceAsStream(("config.properties")));
         }
         catch(IOException ex){
@@ -30,8 +33,8 @@ public class MySQLConnector {
     /**
      * Creates the connection object for a MySQL DDBB
      * @return a {@link Connection}
-     * @throws ClassNotFoundException
-     * @throws SQLException
+     * @throws ClassNotFoundException - in some circunstances
+     * @throws SQLException - in some circunstances
      */
     public Connection getMySQLConnection() throws ClassNotFoundException, SQLException {
         try {
@@ -64,9 +67,5 @@ public class MySQLConnector {
                 .append(prop.getProperty(MySQLConstants.SERVER_TIMEZONE)).toString();
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        MySQLConnector connector = new MySQLConnector();
-        Connection connection = connector.getMySQLConnection();
-        System.out.println(connection.getCatalog());
-    }
+
 }

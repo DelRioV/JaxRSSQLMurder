@@ -6,6 +6,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Class that uses LoginSuccesfulManager interface
+ */
 public class LoginSuccesfulManagerImp implements LoginSuccesfulManager {
 
     public LoginSuccesfulManagerImp() {

@@ -8,6 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * @author Pablo Salvador Del Río Vergara / Ismael Orellana Bello
+ * @version 1.0
+ * Class that use ModelInfoManager interface
+ */
 public class ModelInfoManagerImp implements ModelInfoManager {
 
 
@@ -17,11 +22,11 @@ public class ModelInfoManagerImp implements ModelInfoManager {
             PreparedStatement psmt = con.prepareStatement("Select tutorialInfo from model");
             ResultSet resultSet = psmt.executeQuery();
             ArrayList<String> infoRecover = new ArrayList<>();
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 infoRecover.add(resultSet.getString(1));
             }
-                return infoRecover;
-        }catch (Exception e){
+            return infoRecover;
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
