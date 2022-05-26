@@ -1,5 +1,6 @@
 package edu.fpdual.webservice.service;
 
+import edu.fpdual.webservice.exception.ExceptionPersonal;
 import edu.fpdual.webservice.mysql.connector.MySQLConnector;
 import edu.fpdual.webservice.mysql.manager.LoginSuccesfulManager;
 import edu.fpdual.webservice.mysql.manager.imp.LoginSuccesfulManagerImp;
@@ -33,11 +34,13 @@ public class LoginService {
      * <li>false boolean - if it isn't correct</li>
      * </ol>
      */
-    public boolean logIn(String username, String password) {
+    public boolean logIn(String username, String password) throws ExceptionPersonal {
         boolean kk = false;
         try (Connection connection = new MySQLConnector().getMySQLConnection()) {
             if (loginSuccesfulManager.executeLoginQuery(connection, username, password)) {
                 kk = true;
+            } else{
+                throw new ExceptionPersonal(username);
             }
         } catch (Exception e) {
             e.printStackTrace();
